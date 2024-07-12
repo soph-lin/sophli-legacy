@@ -1,0 +1,146 @@
+/* Text animation */
+
+.typewriter {
+  overflow: hidden;/* Ensures the content is not revealed until the animation */
+  border-left: 2px solid #637e5e;/* Typewriter cursor */
+  white-space: nowrap;/* Keeps the content on a single line */
+  margin: inherit auto;/* Gives a scrolling effect as the typing happens */
+  letter-spacing: 3px;
+  animation: typing 3.5s steps(30, end), blinking-cursor 1s step-end infinite;
+}
+/* Typing effect */
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
+}
+
+/* Cursor effect */
+@keyframes blinking-cursor {
+  from,
+  to {
+    border-color: transparent
+  }
+  50% {
+    border-color: #637e5e;
+  }
+}
+
+.boom {
+  animation: boom .3s step-end;
+}
+
+#dialogue-text::after {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 1.2em;
+  vertical-align: bottom;
+  margin-left: 0.2em;
+  animation: blinking-cursor 1s step-end infinite;
+  border-left: 1px solid #637e5e;
+}
+
+/*
+.dialogue-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: inherit auto;
+  animation: typing 1.5s steps(30, end);
+}
+
+.dialogue-typewriter::after {
+  content: '';
+  display: inline-block;
+  width: 0.5em;
+  height: 1.2em;
+  vertical-align: bottom;
+  margin-left: 0.2em;
+  animation: blinking-cursor 1s step-end infinite;
+  border-left: 1px solid #637e5e;
+}
+*/
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes boom {
+  0%   { transform: scale(2); color: #8e5e63; }
+  20%  { transform: scale(1.1) }
+  30% { transform: scale(1); color: #637e5e; }
+}
+
+.boom::after {
+  content: '';
+  display: none;
+  background: url('/assets/confirm-videogame.mp3');
+}
+
+.boom.finished::after {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boom {
+    animation: none;
+  }
+}
+
+/* Sprite animations */
+
+.bobbing {
+  animation-name: bobbing;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes bobbing {
+  0%   { transform: scale(1,1) }
+  50%  { transform: scale(1.02,.95) }
+  100% { transform: scale(1,1) }
+}
+
+.jump { /* Referenced https://css-tricks.com/making-css-animations-feel-natural/ */
+  animation-name: jump;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes jump {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-100px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-7px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+
+.jump.very-fast {
+  animation-duration: 0.1s;
+}
+
+.spinning {
+  animation-name: spinning;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes spinning {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}

@@ -1,0 +1,1 @@
+// Note that empty text is not valid in this dialogue engine and will be removed.

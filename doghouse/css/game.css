@@ -1,0 +1,150 @@
+:root {
+    --modal: 10;
+}
+
+#rooms-menu:hover #rooms-menu-list, #rooms-menu a.triggeredHover ~ #rooms-menu-list {
+    display: grid;
+}
+
+#rooms-menu-list {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense; /* fill in empty grid cells with subsequent items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#settings-button {
+    position: absolute;
+    right: 30px;
+    font-size: 20px;
+}
+
+#settings-container {
+    display: none;
+    position: fixed;
+    z-index: var(--modal);
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#settings-content {
+    background-color: #F8F4EF;
+    margin: auto;
+    border: 1px solid #637e5e;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-container {
+    display: none;
+    position: fixed;
+    z-index: var(--modal);
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-header:empty {
+    display: none;
+}
+
+#modal-footer {
+    display: flex;
+    gap: 5px;
+}
+
+#start-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#dialogue-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    border: 1px solid #637e5e;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
+    flex-direction: column;
+    z-index: var(--modal);
+}
+
+#dialogue-text {
+    max-width: 100%;
+    height: 100px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.stage {
+    display: flex;
+    width: 300px;
+    height: 300px;
+}
+
+.animatable {
+    align-self: flex-end;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    margin: 0 auto 0 auto;
+    transform-origin: bottom;
+}
+
+.move-container {
+    position: fixed; /* So doggo may soar high and beyond everything. Basically, doesn't take space in DOM. */
+    justify-content: center;
+    align-items: center;
+}
+
+.move-container, .move-container * {
+    padding: 0;
+}
+
+.hitbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player.move-container {
+    width: 100px;
+}
+
+#player.hitbox img {
+    width: 100px;
+}
+
+#rooms-menu {
+    display: none;
+}
