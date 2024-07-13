@@ -1,0 +1,97 @@
+[theme="dark"] {
+    --bg-color: #001524;
+    --primary-color: #c0ccb8;
+    --font-color: #c0ccb8;
+    --heading-color: #c0ccb8;
+    --highlight-color: #c0ccb8;
+}
+
+div {
+    padding-left: 0px;
+    margin: 10px;
+}
+
+#get-stats-div {
+    background-color: #aec8a6;
+}
+
+#additional-settings-div {
+    background-color: #ccdbc7;
+}
+
+#extra-div {
+    background-color: #FFFFED;
+}
+
+#msg-container {
+    white-space: pre-wrap;
+}
+
+#results-div {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.no-spacing {
+    margin: 0;
+    padding: 0;
+}
+
+.no-spacing-vertical {
+    margin-top: 0; 
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.no-spacing-bottom {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.spotistats-dropdown {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+#audio-stats-msg {
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+#audio-stats {
+    margin-top: 10px;
+}
+
+#stats {
+    display: none;
+}
+
+#cloud {
+    display: none;
+}
+
+#list-display {
+    display: none;
+}
+
+#custom-season-container {
+    display: none;
+}
+
+#season-year {
+    width: 50px;
+}
+
+#custom-period-container {
+    display: none;
+}
+
+#custom-day-container {
+    display: none;
+}
