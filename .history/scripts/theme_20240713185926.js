@@ -13,10 +13,13 @@ function setupThemeEls() {
 
     // bind events
     lightbulb.addEventListener('mouseover', function() {
+        console.log('hovering');
+        console.log('animating');
         pullCord.classList.add("dropAnim");
     }, { once: true });
 
     pullCord.addEventListener('click', function() {
+        console.log('pull');
         pullCord.classList.add('pullAnim');
         lightOn = !lightOn;
         turnOnLight(lightOn, customPullCordHandle);
@@ -62,14 +65,14 @@ function turnOnLight(on, customPullCordHandle) { // change appearance of lightbu
         document.documentElement.setAttribute('theme', 'light');
         localStorage.setItem('theme', 'light');
         turnOnLightAppearance(on);
-        if (splashContainerExists) updateSplash(customSplashMsg || random(lightModeMessages));
+        updateSplash(customSplashMsg || random(lightModeMessages));
         new Audio(customSound || '/sounds/lighton.wav').play();
     }
     else {
         document.documentElement.setAttribute('theme', 'dark');
         localStorage.setItem('theme', 'dark');
         turnOnLightAppearance(on);
-        if (splashContainerExists) updateSplash(customSplashMsg || random(darkModeMessages));
+        updateSplash(customSplashMsg || random(darkModeMessages));
         new Audio(customSound || '/sounds/lightoff.wav').play();
     }
 }
@@ -95,6 +98,7 @@ function turnOnLightAppearance(on) {
 function setupTheme() {
     let theme = localStorage.getItem('theme');
     if (theme) {
+        console.log(theme);
         document.documentElement.setAttribute('theme', theme);
         return theme;
     }

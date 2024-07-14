@@ -13,10 +13,13 @@ function setupThemeEls() {
 
     // bind events
     lightbulb.addEventListener('mouseover', function() {
+        console.log('hovering');
+        console.log('animating');
         pullCord.classList.add("dropAnim");
     }, { once: true });
 
     pullCord.addEventListener('click', function() {
+        console.log('pull');
         pullCord.classList.add('pullAnim');
         lightOn = !lightOn;
         turnOnLight(lightOn, customPullCordHandle);
@@ -95,6 +98,7 @@ function turnOnLightAppearance(on) {
 function setupTheme() {
     let theme = localStorage.getItem('theme');
     if (theme) {
+        console.log(theme);
         document.documentElement.setAttribute('theme', theme);
         return theme;
     }
