@@ -166,6 +166,8 @@ function setupPullCordHandle() {
         customPullCordHandle = random(miscHandles);
     }
 
+    customPullCordHandle = miscHandles[6];
+
     if (customPullCordHandle) {
         // set icon
         customPullCordHandleEl.textContent = customPullCordHandle.randIcon();

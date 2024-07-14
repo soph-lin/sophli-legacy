@@ -4,7 +4,7 @@
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/navbar.php'; ?>
     <h1>about 🌱</h1>
-    <p>Just a personal project to store a hodgepodge of experiments and ideas.</p>
+    <p>Just a personal project for me to store all kinds of experiments and ideas.</p>
     <p>P.S. Since you took the trouble of getting here, here's a useless (but nonetheless cool) fact:</p>
     <p id="factContainer"></p>
     <p><em>Note: I used the lovely Uselessfacts API (https://uselessfacts.jsph.pl) in obtaining the fact. Unfortunately, I am not smart enough to remember hundreds of useless facts.</em></p>

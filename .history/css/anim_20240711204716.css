@@ -22,7 +22,7 @@
     border-color: transparent
   }
   50% {
-    border-color: var(--primary-color);
+    border-color: #637e5e;
   }
 }
 

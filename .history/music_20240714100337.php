@@ -4,7 +4,7 @@
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/navbar.php'; ?>
     <h1>music 🎵</h1>
-    <p>Just some music I made on Musescore and FL Studio.</p>
+    <p>Just some music I made on Musescore and FL Studio. Enjoy!</p>
     <div>
         <p class="typewriter">pluviophile (piano orchestra v.)</p>
         <audio controls controlsList="nodownload">

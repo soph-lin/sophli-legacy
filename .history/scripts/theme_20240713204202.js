@@ -146,13 +146,10 @@ function setupPullCordHandle() {
         '12-25': new PullCordHandle('🎁', 'a gift for you on a special day 🎄')
     };
     const miscHandles = [
-        new PullCordHandle('🕷️', 'aaah! spider!'),
+        new PullCordHandle('🕷️', 'aaah! spider'),
         new PullCordHandle('⚓', 'ahoy matey!', {coords: {x: -11}}),
         new PullCordHandle('🔔', 'ring ring', {pullSound: '/sounds/bell.mp3'}),
-        new PullCordHandle(['🐟', '🐠', '🦞', '🐡', '🦐'], 'what a catch!', {pullSound: '/sounds/splash.mp3'}),
-        new PullCordHandle('🐒', 'monkey see, monkey do', {coords: {x: -5, y: 153}}),
-        new PullCordHandle('🦧', 'monkey see, monkey do', {coords: {x: -9, y: 150}}),
-        new PullCordHandle('🦍', 'monkey see, monkey do', {coords: {x: -10, y: 150}})
+        new PullCordHandle(['🐟', '🐠', '🦞', '🐡', '🦐'], 'what a catch!', {pullSound: '/sounds/splash.mp3'})
     ];
     const customPullCordHandleEl = document.getElementById('customPullCordHandle');
     let customPullCordHandle = null;

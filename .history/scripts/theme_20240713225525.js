@@ -151,8 +151,7 @@ function setupPullCordHandle() {
         new PullCordHandle('🔔', 'ring ring', {pullSound: '/sounds/bell.mp3'}),
         new PullCordHandle(['🐟', '🐠', '🦞', '🐡', '🦐'], 'what a catch!', {pullSound: '/sounds/splash.mp3'}),
         new PullCordHandle('🐒', 'monkey see, monkey do', {coords: {x: -5, y: 153}}),
-        new PullCordHandle('🦧', 'monkey see, monkey do', {coords: {x: -9, y: 150}}),
-        new PullCordHandle('🦍', 'monkey see, monkey do', {coords: {x: -10, y: 150}})
+        new PullCordHandle('🦧', 'monkey see, monkey do', {coords: {x: -5, y: 153}})
     ];
     const customPullCordHandleEl = document.getElementById('customPullCordHandle');
     let customPullCordHandle = null;

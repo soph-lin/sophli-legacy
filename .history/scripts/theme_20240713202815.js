@@ -14,6 +14,7 @@ function setupThemeEls() {
     // bind events
     lightbulb.addEventListener('mouseover', function() {
         pullCord.classList.add("dropAnim");
+        if (customPullCordHandle) 
     }, { once: true });
 
     pullCord.addEventListener('click', function() {
@@ -107,7 +108,7 @@ class PullCordHandle {
         this.icon = icon;
         this.msgs = msgs;
         if (params) {
-            this.dropSound = params.dropSound || null; // Unfortunately, dropSound can't play without user interaction, so this will be deprecated and unimplemented for now.
+            this.dropSound = params.dropSound || null;
             this.pullSound = params.pullSound || null;
             this.coords = params.coords || null;
         }
@@ -117,7 +118,7 @@ class PullCordHandle {
         if (typeof this.msgs == 'string') {
             return this.msgs;
         }
-        else if (this.msgs instanceof Array) {
+        else if (this.msgs.isArray()) {
             return random(this.msgs);
         }
         else {
@@ -126,33 +127,32 @@ class PullCordHandle {
     }
 
     randIcon() {
-        console.log(this.icon);
         if (typeof this.icon == 'string') {
             return this.icon;
         }
-        else if (this.icon instanceof Array) {
+        else if (this.icon.isArray()) {
             return random(this.icon);
         }
         else {
             console.error('Error: no icon set in custom pull cord handle: ' + this);
         }
     }
+
+    playDropSound() {
+        new Audio(this.dropSound).play();
+    }
 }
 
 function setupPullCordHandle() {
     const specialHandles = {
         '2-14': new PullCordHandle('🌹', 'a rose for thee', {coords: {x: -7}}),
-        '10-31': new PullCordHandle('🎃', ['a spooky surprise!', `it's heavy! how strong is this cord??`]),
         '12-25': new PullCordHandle('🎁', 'a gift for you on a special day 🎄')
     };
     const miscHandles = [
-        new PullCordHandle('🕷️', 'aaah! spider!'),
+        new PullCordHandle('🕷️', 'aaah! spider'),
         new PullCordHandle('⚓', 'ahoy matey!', {coords: {x: -11}}),
         new PullCordHandle('🔔', 'ring ring', {pullSound: '/sounds/bell.mp3'}),
-        new PullCordHandle(['🐟', '🐠', '🦞', '🐡', '🦐'], 'what a catch!', {pullSound: '/sounds/splash.mp3'}),
-        new PullCordHandle('🐒', 'monkey see, monkey do', {coords: {x: -5, y: 153}}),
-        new PullCordHandle('🦧', 'monkey see, monkey do', {coords: {x: -9, y: 150}}),
-        new PullCordHandle('🦍', 'monkey see, monkey do', {coords: {x: -10, y: 150}})
+        new PullCordHandle(['🐟', '🐠', '🦞', '🐡', '🦐'], 'what a catch!', {dropSound: '/sounds/splash.mp3'})
     ];
     const customPullCordHandleEl = document.getElementById('customPullCordHandle');
     let customPullCordHandle = null;
@@ -162,8 +162,8 @@ function setupPullCordHandle() {
     if (todayParsed in specialHandles) { // set up special handle if matches date
         customPullCordHandle = specialHandles[todayParsed];
     }
-    else if (chance(0.01)) { // otherwise chance for misc handle (1 in 100)
-        customPullCordHandle = random(miscHandles);
+    else if (chance(1)) { // otherwise chance for misc handle (1 in 100)
+        customPullCordHandle = miscHandles[3]; // random(miscHandles)
     }
 
     if (customPullCordHandle) {
