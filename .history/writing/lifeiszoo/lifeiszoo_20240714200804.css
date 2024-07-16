@@ -1,0 +1,53 @@
+/*
+.toc-section-container {
+    margin: 10px 10px 40px 10px;
+}
+
+.toc-section-container > h1, p  {
+    margin: 10px 10px 10px 0px;
+}
+
+.toc-section-container > div {
+    margin-left: 15px;
+}
+
+a {
+    margin: 15px;
+}
+*/
+
+div.info-card {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+  
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    width: 300px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

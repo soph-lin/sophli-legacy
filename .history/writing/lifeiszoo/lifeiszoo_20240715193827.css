@@ -1,0 +1,22 @@
+#lifeiszoo-bottom-desc {
+    margin-bottom: 20px;
+}
+
+div.toc-section-container, div.info-card {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Get rid of big gap between desc and entries */
+
+#entriesContainer {
+    padding-top: 0;
+}
+
+#entriesContainer .toc-section-container:first-of-type {
+    padding-top: 0;
+}
+
+#entriesContainer .toc-section-container:first-of-type h1 {
+    margin-top: 0;
+}

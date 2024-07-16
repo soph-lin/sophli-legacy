@@ -1,0 +1,129 @@
+:root {
+    --info-card-boxshadow: #0000001a;
+}
+
+[theme="dark"] {
+    --info-card-boxshadow: #1a2c3a;
+}
+
+.section-description {
+    margin-bottom: 20px 0;
+}
+
+.info-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px var(--info-card-boxshadow);
+    padding: 5px;
+    margin: 20px;
+	grid-template-areas: 
+		'title'
+		'subtitle'
+		'desc'
+        'extra';
+	transition: 0.15s ease;
+}
+
+@media screen and (min-width: 900px) and (hover: hover) and (pointer: fine) {
+	.info-card:hover {
+		transform: translateY(-10px);
+	}
+}
+
+.info-card div, p {
+    margin: 15px;
+}
+
+.info-card .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-card .photo {
+    max-width: 100%;
+    height: 200px;
+}
+
+.info-card .photo {
+    margin-left: 0;
+}
+
+.info-card .photo.getty-embed {
+    width: 100%;
+    max-width: 508px;
+}
+
+.info-card .photo.getty-embed div:nth-child(2) {
+    padding: 10px 0;
+    margin: 0px 0px 10px 0px;
+    text-align: left;
+    font-size: 5px;
+}
+
+.info-card .photo.getty-embed div:nth-child(2) a, .info-card .left div a {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 13px;
+    font-family: monospace;
+}
+
+.info-card .photo.getty-embed div:nth-child(1) {
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding: 66.92913% 0 0 0;
+    width: 100%;
+}
+
+.info-card .photo.getty-embed div:nth-child(1) iframe {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+}
+
+.info-card .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.info-card h2 {
+	grid-area: title;
+    font-family: monospace;
+    font-style: normal;
+	font-weight: 700;
+	font-size: 22px;
+}
+
+.info-card h3 {
+	grid-area: subtitle;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.info-card .scientific-name {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+.info-card p {
+	grid-area: desc;
+	margin-top: 10px;
+}
+
+.info-card .extra {
+    grid-area: extra;
+    font-style: italic;
+}

@@ -1,0 +1,26 @@
+/*
+.toc-section-container {
+    margin: 10px 10px 40px 10px;
+}
+
+.toc-section-container > h1, p  {
+    margin: 10px 10px 10px 0px;
+}
+
+.toc-section-container > div {
+    margin-left: 15px;
+}
+
+a {
+    margin: 15px;
+}
+*/
+
+div.toc-section-container, div.info-card {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#entriesContainer {
+
+}
