@@ -5,7 +5,7 @@ function setupThemeEls() {
     const pullCord = document.getElementById('pullCord');
     let lightOn = initialTheme === 'light';
 
-    // setup pull cord handle
+    // setup pull cord handle, 1 in 100 chance to get easter egg handle
     const customPullCordHandle = setupPullCordHandle();
 
     // if dark mode, change lightbulb to dark (in page, originally set as light mode)
@@ -161,7 +161,7 @@ function setupPullCordHandle() {
     if (today in specialHandles) { // set up special handle if matches date
         customPullCordHandle = specialHandles[today];
     }
-    else if (chance(1/20)) { // otherwise chance for misc handle
+    else if (chance(0.01)) { // otherwise chance for misc handle
         customPullCordHandle = random(miscHandles);
     }
 

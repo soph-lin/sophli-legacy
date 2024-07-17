@@ -7,7 +7,7 @@
     <p>Just a personal project to store a hodgepodge of experiments and ideas.</p>
     <p>P.S. Since you took the trouble of getting here, here's a useless (but nonetheless cool) fact:</p>
     <p id="factContainer">Loading...</p>
-    <p><em>Note: I used the lovely Uselessfacts API (https://uselessfacts.jsph.pl) in obtaining the fact, as I am unfortunately not smart enough to remember hundreds of useless facts.</em></p>
+    <p><em>Note: I used the lovely Uselessfacts API (https://uselessfacts.jsph.pl) in obtaining the fact. Unfortunately, I am not smart enough to remember hundreds of useless facts.</em></p>
 </body>
 </html>
 
@@ -16,7 +16,7 @@
         .then(response => response.json()) // parse the response as JSON
         .then(data => {
            var factContainer = document.getElementById('factContainer');
-           factContainer.textContent = data.text;
+           factContainer.textContent += data.text;
         })
         .catch(error => {
             console.error('Error fetching random fact:', error);

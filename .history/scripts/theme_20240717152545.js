@@ -161,7 +161,7 @@ function setupPullCordHandle() {
     if (today in specialHandles) { // set up special handle if matches date
         customPullCordHandle = specialHandles[today];
     }
-    else if (chance(1/20)) { // otherwise chance for misc handle
+    else if (chance(1)) { // otherwise chance for misc handle
         customPullCordHandle = random(miscHandles);
     }
 
