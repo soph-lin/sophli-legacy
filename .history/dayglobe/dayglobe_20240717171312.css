@@ -1,0 +1,21 @@
+:root {
+    --sun-color: #FFE484;
+}
+
+#window-container {
+    margin: 0;
+    width: 100%;
+}
+
+#sun {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+}
+
+@keyframes glow {
+    50% box-shadow {
+
+    }
+}

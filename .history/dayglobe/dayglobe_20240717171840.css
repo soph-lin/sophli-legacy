@@ -1,0 +1,24 @@
+:root {
+    --sun-color: #FFE484;
+}
+
+#window-container {
+    margin: 500px;
+}
+
+#sun {
+    width: 100px;
+    height: 100px;
+    background: var(--sun-color);
+    border-radius: 50%;
+    animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+    50% {
+        box-shadow: 0 0 20px var(--sun-color),
+                    0 0 60px var(--sun-color),
+                    0 0 100px var(--sun-color);
+        transform: scale(1.3);
+    }
+}

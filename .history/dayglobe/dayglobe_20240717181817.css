@@ -1,0 +1,43 @@
+:root {
+    --sun-color: #FFE484;
+    --window-border: var(--primary-color);
+}
+
+#window-container {
+    margin: auto;
+    margin-top: 30px;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+#pt {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#sun {
+    width: 80px;
+    height: 80px;
+    background: var(--sun-color);
+    border-radius: 50%;
+    
+    animation: glow 4s ease-in-out infinite;
+
+    position: absolute;
+}
+
+@keyframes glow {
+    50% {
+        box-shadow: 0 0 20px var(--sun-color),
+                    0 0 60px var(--sun-color),
+                    0 0 150px var(--sun-color);
+    }
+}

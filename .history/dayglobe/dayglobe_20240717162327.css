@@ -1,0 +1,8 @@
+#window-container {
+    margin: 0;
+    width: 100%;
+}
+
+#window-container svg {
+    margin: auto;
+}

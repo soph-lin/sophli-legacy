@@ -1,0 +1,47 @@
+:root {
+    --sun-color: #FFE484;
+    --window-border: var(--primary-color);
+}
+
+#window-container {
+    margin: auto;
+    margin-top: 30px;
+    width: 500px;
+    height: 300px;
+    border: 5px solid var(--window-border);
+    overflow: hidden;
+    position: relative;
+}
+
+#center-pt {
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: none;
+}
+
+#sun {
+    width: 80px;
+    height: 80px;
+    background: var(--sun-color);
+    border-radius: 50%;
+    
+    animation: glow 4s ease-in-out infinite;
+
+    position: absolute;
+    left: -5px;
+    top: -5px;
+}
+
+@keyframes glow {
+    50% {
+        box-shadow: 0 0 20px var(--sun-color),
+                    0 0 60px var(--sun-color),
+                    0 0 150px var(--sun-color);
+    }
+}

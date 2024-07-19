@@ -1,0 +1,158 @@
+:root {
+    --sun-color: white;
+    --window-border: #333;
+    --glass-opacity: 0.3;
+
+    --border-index: 10;
+    --blur-index: 5;
+}
+
+[theme="dark"] {
+    --window-border: #000d1a;
+}
+
+#window {
+    margin: 50px auto;
+    padding: 0;
+    width: 500px;
+    height: 300px;
+    border: 15px solid var(--window-border);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#window-border {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 20px solid rgba(255, 255, 255, var(--glass-opacity));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: var(--border-index - 5);
+}
+
+#window-border::before, #window-border::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, var(--glass-opacity));
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: var(--border-index);
+}
+
+#window-border::before {
+    width: calc(100% - 40px);
+    height: 20px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+#window-border::after {
+    width: 100%;
+    height: calc(100% - 40px);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#blur {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .15);  
+    /* backdrop-filter: blur(5px); */
+    position: absolute;
+    z-index: var(--blur-index);
+}
+
+#center-pt { /* for testing coord system of sun */
+    width: 10px;
+    height: 10px;
+    background: red;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    display: none;
+}
+
+#sun {
+    width: 80px;
+    height: 80px;
+    background: var(--sun-color);
+    border-radius: 50%;
+
+    position: absolute;
+    left: -5px;
+    top: -5px;
+
+    opacity: 0;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px 5px var(--sun-color);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--sun-color),
+                    0 0 60px var(--sun-color),
+                    0 0 150px var(--sun-color);
+    }
+
+    100% {
+        box-shadow: 0 0 10px 5px var(--sun-color);
+    }
+}
+
+@keyframes phaseChange {
+    0% {
+        --sun-color: #FFFFFF;
+        background: #FFFFFF;
+    }
+
+    25% {
+        --sun-color: #FFE484;
+        background: #FFE484;
+    }
+
+    50% {
+        --sun-color: #FFCC33;
+        background: #FFCC33;
+    }
+
+    70% {
+        --sun-color: #FC9601;
+        background: #FC9601;
+    }
+
+    100% {
+        --sun-color: #D14009;
+        background: #D14009;
+    }
+}
+
+@keyframes skyChange {
+    0% {
+        background-color: #B5D6E0;
+    }
+
+    50% {
+        background-color: #C7E1E5;
+    }
+
+    80% {
+        background-color: #FFEF7A;
+    }
+
+    90% {
+        background-color: #F7C16A;
+    }
+
+    100% {
+        background-color: #F46A55;
+    }
+}
