@@ -64,6 +64,10 @@ em, strong, i, b {
     font-size: inherit;
 }
 
+a {
+    padding: 0;
+}
+
 div > a {
     margin-right: 10px;
 }

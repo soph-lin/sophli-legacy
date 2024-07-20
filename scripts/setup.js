@@ -13,11 +13,14 @@ document.addEventListener('DOMContentLoaded', async function() {
             await addScript('/spotistats/spotistats-icons.js');
             // await so data can load before analytics script (next script) does
             addScript('/spotistats/spotistats.js');
+            break;
         case 'dayglobe':
             addCSS('/dayglobe/dayglobe.css');
             addScript('/dayglobe/dayglobe.js');
+            break;
         case 'lifeiszoo':
             addCSS('/writing/lifeiszoo/lifeiszoo.css');
+            break;
     }
     setupSplash(page);
     setupThemeEls(); // run in /scripts/theme.js

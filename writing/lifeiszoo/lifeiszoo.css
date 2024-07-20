@@ -11,10 +11,6 @@
     margin-left: 10px;
 }
 
-.toc-section-contaienr a {
-    padding: 0;
-}
-
 /* Get rid of big gap between desc and entries */
 
 #entriesContainer {
