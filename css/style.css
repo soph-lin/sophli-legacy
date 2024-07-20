@@ -43,10 +43,6 @@ h2 {
     font-family: monospace;
 }
 
-a {
-    padding: 0;
-}
-
 a:not(#githubIcon):hover {
     background-color: var(--highlight-color);
 }

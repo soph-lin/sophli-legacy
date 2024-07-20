@@ -1,21 +1,3 @@
-/*
-.toc-section-container {
-    margin: 10px 10px 40px 10px;
-}
-
-.toc-section-container > h1, p  {
-    margin: 10px 10px 10px 0px;
-}
-
-.toc-section-container > div {
-    margin-left: 15px;
-}
-
-a {
-    
-}
-*/
-
 #lifeiszoo-bottom-desc {
     margin-bottom: 20px;
 }
@@ -27,6 +9,10 @@ a {
 
 .toc-section-container .toc-entries {
     margin-left: 10px;
+}
+
+.toc-section-contaienr a {
+    padding: 0;
 }
 
 /* Get rid of big gap between desc and entries */
