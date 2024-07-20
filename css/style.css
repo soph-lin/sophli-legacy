@@ -134,6 +134,7 @@ nav li {
 
 nav ul li.dropdown-list {
     position: relative;
+    padding: 20px;
 }
  
 nav ul li.dropdown-list > ul {
