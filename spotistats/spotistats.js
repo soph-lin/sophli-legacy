@@ -989,7 +989,9 @@ class SongAnalytics {
         if (!songs || !parentEl) {
             return;
         }
+        console.log('displaying songs as links for', this.name);
         songs.forEach((song) => {
+            console.log('displaying song', song.name);
             let songDisplay = document.createElement('a');
             songDisplay.textContent = song.name;
             songDisplay.setAttribute('songName', song.name);
@@ -1073,7 +1075,7 @@ class SongAnalytics {
         this.displaySongsAsLinks(someMostFreqSongs, mostFreqSongsEl);
 
         let leastFreqSongsEl = document.createElement('li');
-        leastFreqSongsEl.textContent = this.createLeastFreqMsg() + ', including';
+        leastFreqSongsEl.textContent = this.createLeastFreqMsg() + ', including ';
         let leastFreqData = this.findLeastFreq();
         let someLeastFreqSongs = this.getSomeSongs(leastFreqData[1].songs);
         this.displaySongsAsLinks(someLeastFreqSongs, leastFreqSongsEl);

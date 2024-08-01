@@ -50,8 +50,8 @@ function instantiateEntity(data) {
     const animDuration = animDurations[animName] ? animDurations[animName] : 2; // Get animDuration from library if exists, else default is 2.
     // Actual elements
     const move = document.createElement('div');
-        move.classList.add("move-container");
-        move.classList.add("entity");
+        move.classList.add('move-container');
+        move.classList.add('entity');
         if (data.x && data.y)  move.style.transform = `translate(${data.x}px, ${data.y*-1}px)`;
         else if (data.x)  move.style.transform = `translate(${data.x}px, 0px)`;
         else if (data.y)  move.style.transform = `translate(0px, ${data.y*-1}px)`;
@@ -131,10 +131,10 @@ function removeElement(element) {
     removeAllEventListeners(element);
   
     while (element.firstChild) {
-      removeElement(element.firstChild);
-      if (element.firstChild) {
-        element.removeChild(element.firstChild);
-      }
+        removeElement(element.firstChild);
+        if (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
     }
   
     element.parentNode.removeChild(element);
@@ -144,7 +144,7 @@ function removeAllChildElements(element) {
     while (element.firstChild) {
         removeElement(element.firstChild);
         if (element.firstChild) {
-        element.removeChild(element.firstChild);
+            element.removeChild(element.firstChild);
         }
     }
 }
@@ -152,6 +152,6 @@ function removeAllChildElements(element) {
 function removeAllEventListeners(element) {
     const eventTypes = ['click', 'mouseover', 'mouseout', 'keydown', 'keyup', 'submit'];
     eventTypes.forEach(type => {
-      element.removeEventListener(type, () => {});
+        element.removeEventListener(type, () => {});
     });
 }
