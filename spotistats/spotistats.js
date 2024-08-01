@@ -439,7 +439,7 @@ async function getStats(time, data) {
         createListDisplay(res.newSongsFinal);
         if (songsDisplayTypeEl.value === 'display as list') {
             cloud.style.display = 'none';
-            typeSongsConsec();      
+            typeSongsConsec();  
         }
         else {
             cloud.style.display = 'block';
@@ -989,9 +989,7 @@ class SongAnalytics {
         if (!songs || !parentEl) {
             return;
         }
-        console.log('displaying songs as links for', this.name);
         songs.forEach((song) => {
-            console.log('displaying song', song.name);
             let songDisplay = document.createElement('a');
             songDisplay.textContent = song.name;
             songDisplay.setAttribute('songName', song.name);
@@ -1295,7 +1293,7 @@ function createListDisplay(songs) {
 }
 
 async function typeSongsConsec() {
-    let newSongEls = document.getElementsByClassName('song-display');
+    let newSongEls = listDisplay.getElementsByClassName('song-display'); // Since song-display is a class used in both the statistics and list display, MUST specify to get the elements from list display.
     listDisplay.style.display = 'block';
     cloud.style.display = 'none';
 
