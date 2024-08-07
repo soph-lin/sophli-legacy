@@ -13,6 +13,10 @@
             <option>summer</option>
             <option>fall</option>
             <option>winter</option>
+            <option>today</option>
+            <option>yesterday</option>
+            <option>last week</option>
+            <option>last month</option>
             <option>custom period</option>
             <option>custom day</option>
         </select>

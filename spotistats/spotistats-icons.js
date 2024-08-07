@@ -553,3 +553,5 @@ const spotistatsSplashIcons = [
     stitch2,
     googleDinosaur
 ]
+
+export default spotistatsSplashIcons;

@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             break;
         case 'spotistats':
             addCSS('/css/spotistats.css');
-            await addScript('/spotistats/spotistats-sample-data.js');
-            await addScript('/spotistats/spotistats-icons.js');
+            await addScript('/spotistats/spotistats-sample-data.js', 'module');
+            await addScript('/spotistats/spotistats-icons.js', 'module');
+            await addScript('/spotistats/utils/date.js', 'module');
             // await so data can load before analytics script (next script) does
-            addScript('/spotistats/spotistats.js');
+            addScript('/spotistats/spotistats.js', 'module');
             break;
         case 'dayglobe':
             addCSS('/dayglobe/dayglobe.css');

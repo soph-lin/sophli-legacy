@@ -103,6 +103,10 @@ function addCSS(path) {
     document.head.appendChild(link);
 }
 
+function isLocalHost() {
+    return location.hostname === "localhost" || location.hostname === "127.0.0.1";
+}
+
 /* Deprecated script load functions
 
 function addScriptToHead(path, page) {

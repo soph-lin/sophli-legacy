@@ -1,11 +1,15 @@
 // ty https://leemartin.dev/creating-a-simple-spotify-authorization-popup-in-javascript-7202ce86a02f
 // and https://medium.com/front-end-weekly/how-i-built-a-miniature-year-round-available-version-of-spotify-wrapped-e7625a30b58b
 
+import spotistatsSplashIcons from '/spotistats/spotistats-icons.js';
+import { songData, audioData } from '/spotistats/spotistats-sample-data.js';
+import getDates from '/spotistats/utils/date.js';
+
 const scope = 'user-read-private playlist-read-private playlist-read-collaborative';
 const token = window.location.hash.substring(1).split('&')[0].split("=")[1];
 window.location.hash = '';
 
-const redirect_uri = window.location.origin + '/bites/spotistats.php'; // automatically redirect to localhost or sophli.me
+const redirect_uri = window.location.origin + '/code/spotistats.php'; // Automatically redirect to localhost or sophli.in
 
 const getStatsButton = document.getElementById('get-stats');
 const dataTypeInput = document.getElementById('data-type');
@@ -142,6 +146,11 @@ function updateTimeEls(type) {
         customSeasonContainer.style.display = 'none';
         customPeriodContainer.style.display = 'none';
     }
+    else if (type === 'yesterday' || type === 'last week' || type === 'last month') {
+        customDayContainer.style.display = 'none';
+        customSeasonContainer.style.display = 'none';
+        customPeriodContainer.style.display = 'none';
+    }
 }
 
 function getStatsLogic() {
@@ -153,8 +162,16 @@ function getStatsLogic() {
     if (dataTypeInput.value === 'use sample data') {
         data = {songData, audioData};
     }
-
-    if (timeTypeInput.value === 'custom period') {
+    if (timeTypeInput.value === 'spring' || timeTypeInput.value === 'summer' || timeTypeInput.value === 'fall' || timeTypeInput.value === 'winter') {
+        const season = timeTypeInput.value;
+        const year = document.getElementById('season-year').value;
+        if (!year) {
+            alert('Input a year!');
+            return;
+        }
+        getStats({season, year}, data);
+    }
+    else if (timeTypeInput.value === 'custom period') {
         if (!startingDateInput.value && !endDateInput.value) {
             alert('Input a starting and end date!');
             return;
@@ -190,14 +207,9 @@ function getStatsLogic() {
         const day = new Date(dayInput.value + ' '); // add space so it isn't off by a day (utc time)
         getStats({startingDate: day, endDate: day}, data);
     }
-    else {
-        const season = timeTypeInput.value;
-        const year = document.getElementById('season-year').value;
-        if (!year) {
-            alert('Input a year!');
-            return;
-        }
-        getStats({season, year}, data);
+    else { // Get date(s) for today, yesterday, last week, last month
+        const dates = getDates(timeTypeInput.value);
+        getStats({startingDate: dates.startingDate, endDate: dates.endingDate}, data);
     }
 }
 
@@ -471,18 +483,18 @@ async function getNewSongs(myPlaylists, startingDate, endDate) {
             retrievedSongs.forEach((song) => {
                 let id = song.track.id;
 
-                if (!song.added_at) { // some songs added very long time ago have null added_at attribute
-                    console.log('unknown date when added:');
-                    console.log('Song: ' + song.track.name);
-                    console.log('Playlist: ' + playlist.name);
+                if (!song.added_at) { // Some songs added very long time ago have null added_at attribute
+                    console.log('Unknown date when added:');
+                    console.log('Song:', song.track.name);
+                    console.log('Playlist:', playlist.name);
                     return;
                 }
-                let addedDate = new Date(song.added_at.split('T')[0] + ' '); // add space to convert to utc
+                let addedDate = new Date(song.added_at.split('T')[0] + ' '); // Add space to convert to utc
 
                 if (addedDate < startingDate) { // If newly added song was (gasp) added before, mark it!! (to be removed in finalizeNewSongs)
                     newSongs[id] = null; // Unfortunately, however, doesn't take into account same song but released under different albums.
                 }
-                else if (addedDate <= endDate)  { // found earlier time when added song or new song
+                else if (addedDate <= endDate)  { // Found earlier time when added song or new song
                     newSongs[id] = song;
                 }
             });
@@ -520,7 +532,7 @@ function finalizeNewSongs(newSongs, startingDate, endDate, audioData) {
                 partialRes = await getFinalSongsFromRetrieved(newSongs);
             }
             else {
-                console.error('error: invalid inputs');
+                console.error('Error: Invalid inputs');
                 return null;
             }
             let secAdded = partialRes.secAdded;
@@ -530,7 +542,8 @@ function finalizeNewSongs(newSongs, startingDate, endDate, audioData) {
 
             let hrsAdded = round(secAdded / 3600);
             let hrsMadeFun = makeHrsFun(secAdded / 3600);
-    
+            
+            // Return result
             let res = {newSongsFinal, hrsAdded, hrsMadeFun, audioStats, funStat};
             resolve(res);
         } catch (error) {

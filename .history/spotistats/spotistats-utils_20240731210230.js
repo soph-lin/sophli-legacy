@@ -1,0 +1,7 @@
+function getToday() {
+    return {
+
+    }
+}
+
+export {};
