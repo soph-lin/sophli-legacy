@@ -52,7 +52,7 @@
             </div>
             <div class="toc-section-container">
                 <h1>coffeeshop ☕</h1>
-                <p>sit and down have some coffee while you wait. recs, musings, and everything in between.</p>
+                <p>sit down and have a drink while you wait. recs, musings, and everything in between.</p>
                 <div class="toc-entries">
                     <i>under construction</i>
                 </div>
