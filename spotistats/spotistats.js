@@ -6,7 +6,7 @@ import { songData, audioData } from '/spotistats/spotistats-sample-data.js';
 import getDates from '/spotistats/utils/date.js';
 
 const scope = 'user-read-private playlist-read-private playlist-read-collaborative';
-const token = window.location.hash.substring(1).split('&')[0].split("=")[1];
+const token = window.location.hash.substring(1).split('&')[0].split('=')[1];
 window.location.hash = '';
 
 const redirect_uri = window.location.origin + '/code/spotistats.php'; // Automatically redirect to localhost or sophli.in
@@ -475,12 +475,14 @@ async function getNewSongs(myPlaylists, startingDate, endDate) {
     let promises = myPlaylists.map(async (playlist) => {
         let offset = 0;
         let nextPage;
-
         do {
             let data = await spotifyRetrieve(token, `https://api.spotify.com/v1/playlists/${playlist.id}/tracks?offset=${offset}&limit=50`);
-
             let retrievedSongs = data.items;
             retrievedSongs.forEach((song) => {
+                if (!song || !song.track || !song.track.id) {
+                    console.log('No song, track, or track id');
+                    return;
+                }
                 let id = song.track.id;
 
                 if (!song.added_at) { // Some songs added very long time ago have null added_at attribute
@@ -505,7 +507,6 @@ async function getNewSongs(myPlaylists, startingDate, endDate) {
     });
 
     await Promise.all(promises);
-
     let res = await finalizeNewSongs(newSongs, startingDate, endDate);
     return res;
 }
@@ -545,6 +546,7 @@ function finalizeNewSongs(newSongs, startingDate, endDate, audioData) {
             
             // Return result
             let res = {newSongsFinal, hrsAdded, hrsMadeFun, audioStats, funStat};
+            console.log(res);
             resolve(res);
         } catch (error) {
             reject(error);
