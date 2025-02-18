@@ -1,18 +1,22 @@
 # spotistats 🎧
 
 ## About
+
 A music-based time capsule developed using the Spotify API.
-* Discover how your music tastes change over time
-* Nerdy statistical analysis of your music... what is valence, anyway?
-* Animated cloud and list display
-* Cute icons while you're waiting for the time capsule to process
-* Creative name pending
+
+- Discover how your music tastes change over time
+- Nerdy statistical analysis of your music... what is valence, anyway?
+- Animated cloud and list display
+- Cute icons while you're waiting for the time capsule to process
+- Creative name pending
 
 ## Setting up your client ID
+
 To create a time capsule for your music, you will need to create a client ID.
+
 1. Login to your Spotify account on https://developer.spotify.com/.
 2. Head to the dashboard to create a web app and obtain a client ID. More information here: https://developer.spotify.com/documentation/web-api/concepts/apps
-3. Add https://sophli.in/code/spotistats to the Redirect URIs section.
+3. Add https://legacy.sophli.in/code/spotistats to the Redirect URIs section.
 
 ![image](https://github.com/user-attachments/assets/90215ce7-748e-4133-b82b-37eea9b039ea)
 
