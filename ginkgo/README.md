@@ -1,6 +1,6 @@
 # gink-go!
 
-Research query tool for national STEM competition Science Olympiad.
+Research query tool for national STEM competition Science Olympiad. Try it [here](https://legacy.sophli.in/code/ginkgo).
 
 ![gif](https://github.com/user-attachments/assets/ae67f914-caea-4f03-bef5-218f94d84356)
 
